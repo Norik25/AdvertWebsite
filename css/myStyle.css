@@ -1,0 +1,326 @@
+/*@import url('https://netdna.bootstrapcdn.com/twitter-bootstrap/2.3.1/css/bootstrap-combined.min.css');*/
+
+html {
+    box-sizing: border-box;
+    height: 100%;
+}
+body {
+    position: relative;
+    margin: 0;
+    font-family: "Helvetica Neue", Arial, sans-serif;
+    height: 100%;
+}
+.navbar {
+    min-height: 60px;
+
+}
+.nav-item {
+    padding-right: 30px;
+}
+
+
+.navbar-nav {
+    margin-left: 10%;
+
+}
+#list {
+    position: fixed;
+    right: 20%;
+
+}
+#logo {
+    position: fixed;
+    left: 6%;
+}
+.header {
+    width: 310px;
+    margin: 50px auto 0px;
+    color: white;
+    background: #28A745;
+    text-align: center;
+    border: 1px solid #B0C4DE;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+}
+
+.submitForms {
+    width: 310px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 0px 0px 10px 10px;
+}
+.input-group {
+    margin: 10px 0px 10px 0px;
+}
+.input-group label {
+    display: block;
+    text-align: left;
+    margin: 3px;
+}
+.input-group input {
+    height: 40px;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+.input-group textarea {
+    height: 230px;
+    width: 100%;
+    padding: 5px 10px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid gray;
+}
+
+
+.btn-success{
+    padding: 10px;
+    font-size: 15px;
+    color: white;
+    background: #28A745;
+    border: 1px solid #a94442;
+    border-radius: 5px;
+}
+
+.btn-danger {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    float: left;
+}
+.btn-info {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    float: left;
+}
+
+#delBManage {
+    padding: 10px;
+    font-size: 15px;
+    border-radius: 5px;
+    color: white;
+    float: left;
+
+}
+
+.btn-success:hover {
+    background-color: lightgrey;
+    color: black;
+}
+.error {
+    width: 92%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #a94442;
+    color: #a94442;
+    background-color: #f2dede;
+    border-radius: 5px;
+    text-align: left;
+}
+.success {
+    width: 100%;
+    margin: 0px auto;
+    padding: 10px;
+    border: 1px solid #009933;
+    color: #009933;
+    background-color: #ccffcc;
+    border-radius: 5px;
+    text-align: left;
+}
+#footer {
+    float: left;
+    position: relative;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    background-color: lightgray;
+    height: 150px;
+    margin-top: 100px;
+
+}
+.container {
+    margin-top: 100px;
+    height: 100%;
+
+}
+.nav-link {
+    font-size: large;
+
+}
+#dropdownMenuButton {
+    border: none;
+
+
+
+
+}
+.g-recaptcha {
+    margin-left: -18px;
+}
+
+.element {
+    width: 28%;
+    float: left;
+    margin: 15px 15px;
+    height: 350px;
+
+
+
+}
+#captcha {
+    width: 310px;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 0px 0px 10px 10px;
+}
+
+#uploadS {
+    margin-top: 15px;
+}
+
+
+#formAdd {
+    width: 100%;
+    margin: 0px auto;
+    padding: 20px;
+    border: 1px solid #B0C4DE;
+    background: white;
+    border-radius: 0px 0px 10px 10px;
+}
+.headerAdd {
+    width: 100%;
+    margin: 50px auto 0px;
+    color: white;
+    background: #28A745;
+    text-align: center;
+    border: 1px solid #B0C4DE;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+}
+#post {
+    height: 100%;
+}
+#upload {
+    float: left;
+    margin-top: 10px;
+}
+#content {
+    height: auto;
+    margin-bottom: 10px;
+
+
+}
+.element #pTitle {
+    text-align: left;
+    font-size: large;
+    font-style: oblique;
+    padding-top: 25px;
+}
+#ad {
+    width: 60%;
+    float: left;
+
+}
+#contactSeller {
+    width: 36%;
+    height: 50%;
+    margin-left: 10px;
+    float: left;
+    position: static;
+
+}
+#cTitle {
+    font-size: xx-large;
+    margin-top: 20px;
+    font-style: oblique;
+    margin-left: 50px;
+}
+hr {
+    border: none;
+    height: 2px;
+}
+#contactSeller h3 {
+    text-align: center;
+}
+#contactSeller p {
+    margin-left: 25px;
+    margin-top: 15px;
+}
+#contactSeller button {
+    width: 75%;
+    margin-top: 35px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+#searchBar {
+    /*background-color: lightgrey;*/
+    /*margin-top: 16px;*/
+    float: left;
+    width: 100%;
+    margin-bottom: 20px;
+    height: 45px;
+}
+#searchBar form {
+    margin-left: 30%;
+    margin-top: 7px;
+}
+
+
+#mail {
+    width: 50%;
+    height: 25%;
+}
+.headerMail {
+    width: 50%;
+    margin: 50px auto 0px;
+    color: white;
+    background: #28A745;
+    text-align: center;
+    border: 1px solid #B0C4DE;
+    border-bottom: none;
+    border-radius: 10px 10px 0px 0px;
+    padding: 20px;
+}
+#pagination {
+    float: left;
+    width: 100%;
+    margin-top: 50px;
+    padding-top: 50px;
+    margin-bottom: -50px;
+
+}
+#pagination ul{
+    margin-left: 35%;
+}
+#livesearch {
+    float: left;
+    margin-left: 30%;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+

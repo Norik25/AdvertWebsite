@@ -1,0 +1,95 @@
+<?php require('template/header.phtml') ?>
+
+
+<div id="content">
+    <h1 id="cTitle"><?php echo $message5 ?></h1>
+    <h1 id="cTitle"><?php echo $view->car->getTitle() ?></h1>
+<!--    <h1 id="cTitle">--><?php //echo $view->userID ?><!--</h1>-->
+<!--    <h1 id="cTitle">--><?php //echo $view->item ?><!--</h1>-->
+    <div id="ad">
+        <div class="w3-content w3-display-container">
+
+            <?php foreach ($view->picturesOfItem as $picture) {
+                $string = "<img class=\"mySlides\" src=\"uploads/$picture\" width=\"100%\" height=\"100%\">";
+                echo $string;
+            }?>
+
+
+            <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+            <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+        </div>
+        <p>Make: <?php echo $view->car->getMake()?></p>
+        <p>Engine: <?php echo $view->car->getEngine()?></p>
+        <p>Gearbox: <?php echo $view->car->getGearbox()?></p>
+        <p>Mileage: <?php echo $view->car->getMileage()?></p>
+        <p>Color: <?php echo $view->car->getColor()?></p>
+        <p>Price: <?php echo $view->car->getPrice()?></p>
+        <p>Description: <?php echo $view->car->getDescription()?></p>
+        <p>Added: <?php echo $added ?>     -------     <?php echo $elapsedTimeInHours ?> hours ago </p>
+
+
+        <hr>
+        </div>
+        <div id="contactSeller">
+
+            <?php if (isset($_SESSION['username'])) { ?>
+            <h3>Add item to your wish list</h3>
+                <?php if ($message == 'success') { ?>
+                    <div class="success">
+                        <p>Item added to your wish list</p>
+                    </div>
+                <?php } if ($message == "error") {?>
+                    <div class="error">
+                        <p>Item already in your wish list</p>
+                    </div>
+                    <?php } ?>
+            <form method="post" style="border: none; width: 100%" >
+                <button type="submit" name="addWish" class="btn btn-success" >Add to wish list</button>
+
+            </form>
+            <hr>
+            <h3>Contact Seller</h3>
+            <p>Name: <?php echo $view->creator->getUsername()?></p>
+            <p>Phone: <?php echo $view->creator->getPhone()?></p>
+            <p>Location: <?php echo $view->creator->getCity()?></p>
+            <form action="mail.php" style="border: none; width: 100%">
+                <button type="submit" name="contactSeller" class="btn btn-success">Email seller</button>
+            </form>
+                <hr>
+            <?php } else {?>
+            <h3>Add item to your wish list</h3>
+            <form method="post" style="border: none; width: 100%" action="login.php">
+                <button type="submit"  class="btn btn-success" >Add to wish list</button>
+            </form>
+            <hr>
+            <h3>Contact Seller</h3>
+            <form action="login.php" style="border: none; width: 100%">
+                <button type="submit"  class="btn btn-success">Email seller</button>
+            </form>
+                <hr>
+            <?php }?>
+
+
+
+
+        </div>
+    </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<?php require('template/footer.phtml') ?>

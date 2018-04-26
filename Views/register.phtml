@@ -1,0 +1,60 @@
+<?php require('template/header.phtml') ?>
+<div id="content">
+    <div class="login">
+        <div class="header">
+            <h2>Register</h2>
+        </div>
+
+        <form class="submitForms" method="post" action="/register.php">
+            <?php if(isset($_POST['registerButton'])) {
+                include('errors.php');
+            }
+            ?>
+            <div class="input-group">
+                <label>User name</label>
+                <input type="text" name="username" value="<?php echo $username; ?>">
+            </div>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="text" name="email" value="<?php echo $email; ?>">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password1">
+            </div>
+            <div class="input-group">
+                <label>Confirm password</label>
+                <input type="password" name="password2">
+            </div>
+            <div class="input-group">
+                <label>Phone number</label>
+                <input type="text" name="phoneNo" value="<?php echo $phone; ?>">
+            </div>
+            <div class="input-group">
+                <label>Address</label>
+                <input type="text" name="address" value="<?php echo $address; ?>">
+            </div>
+            <div class="input-group">
+                <label>Post Code</label>
+                <input type="text" name="postCode" value="<?php echo $postCode; ?>">
+            </div>
+            <div class="input-group">
+                <label>City</label>
+                <input type="text" name="city" value="<?php echo $city; ?>">
+            </div>
+
+            <div class="input-group">
+                <button type="submit" name="registerButton" class="btn btn-success">Register</button>
+            </div>
+            <p>
+                Already a member? <a href="/login.php">Log In</a>
+            </p>
+        </form>
+
+    </div>
+</div>
+
+
+
+
+<?php require('template/footer.phtml') ?>

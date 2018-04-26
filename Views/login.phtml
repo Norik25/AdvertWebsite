@@ -1,0 +1,38 @@
+<?php require('template/header.phtml') ?>
+<?php include('server.php') ?>
+<div id="content">
+    <div class="login">
+        <div class="header">
+            <h2>Login</h2>
+        </div>
+
+        <form class="submitForms" method="post" action="login.php">
+            <?php if(isset($_POST['loginButton'])) {
+                include('errors.php');
+            }
+            ?>
+            <div class="input-group">
+                <label>Email</label>
+                <input type="text" name="email">
+            </div>
+            <div class="input-group">
+                <label>Password</label>
+                <input type="password" name="password">
+            </div>
+            <di>Captcha<br><input name="captcha" type="text"><br><img src="captcha.php"></di>
+<!--            <div class="g-recaptcha" data-sitekey="6LejnEMUAAAAAMUzmyqcuBhEUhzp6bddG7xL6hjX"></div>-->
+            <div class="input-group">
+                <button type="submit" name="loginButton" class="btn btn-success">Login</button>
+            </div>
+            <p>
+                Not a member yet? <a href="register.php">Sign up</a>
+            </p>
+        </form>
+    </div>
+
+</div>
+
+
+
+
+<?php require('template/footer.phtml') ?>

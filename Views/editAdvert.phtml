@@ -1,0 +1,102 @@
+<?php require('template/header.phtml') ?>
+
+
+
+<div id="content">
+
+
+    <div id="mail">
+        <div class="headerAdd">
+            <h2>Edit your advert</h2>
+        </div>
+
+        <form class="submitForms" id="formAdd" method="post" action="editAdvert.php" enctype="multipart/form-data">
+            <?php if(isset($_POST['editButton'])) {
+                include('errors.php');
+            }
+            ?>
+
+
+            <div class="input-group">
+                <label>Advert title</label>
+                <input type="text" name="title" value="<?php echo $itemObject->getTitle(); ?>">
+            </div>
+
+            <div class="input-group">
+                <label>Make</label>
+                <input type="text" name="make" value="<?php echo $itemObject->getMake(); ?>">
+            </div>
+            <div class="input-group">
+                <label>Engine size</label>
+                <select name="engine">
+                    <option value="1.0">1.0</option>
+                    <option value="1.2">1.2</option>
+                    <option value="1.4">1.4</option>
+                    <option value="1.6">1.6</option>
+                    <option value="1.8">1.8</option>
+                    <option value="1.9">1.9</option>
+                    <option value="2.0">2.0</option>
+                    <option value="2.2">2.2</option>
+                    <option value="2.4">2.4</option>
+                    <option value="2.6">2.6</option>
+                    <option value="3.0">3.0</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4.0">4.0</option>
+                    <option value="4.5">4.5</option>
+                    <option value="5.0">5.0</option>
+                    <option value="5.5">5.5</option>
+                    <option value="6.0">6.0</option>
+                    <option value="6.5">6.5</option>
+                    <option value="7.0">7.0</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Gearbox</label>
+                <select name="gearbox">
+                    <option value="automatic">automatic</option>
+                    <option value="semi-automatic">semi-automatic</option>
+                    <option value="manual">manual</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Mileage</label>
+                <input type="text" name="mileage" value="<?php echo $itemObject->getMileage(); ?>">
+            </div>
+            <div class="input-group">
+                <label>Color</label>
+                <input type="text" name="color" value="<?php echo $itemObject->getColor(); ?>">
+            </div>
+            <div class="input-group">
+                <label>Price</label>
+                <input type="text" name="price" value="<?php echo $itemObject->getPrice(); ?>">
+            </div>
+
+            <div class="input-group">
+                <label>Description</label>
+                <input type="text" name="desc" value="<?php echo $itemObject->getDescription(); ?>">
+            </div>
+
+
+
+
+            <div class="input-group">
+                <button type="submit" name="editAdButton" class="btn btn-success">Update</button>
+            </div>
+
+
+        </form>
+
+
+
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<?php require('template/footer.phtml') ?>

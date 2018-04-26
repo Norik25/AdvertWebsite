@@ -1,0 +1,77 @@
+<?php require('template/header.phtml') ?>
+
+
+<div id="content">
+
+    <table class="table table-hover">
+        <thead>
+        <tr><th>Title</th><th>Added</th><th>Price</th><th>Picture</th><th>Delete</th><th>View</th></tr>
+
+
+        </thead>
+        <tbody>
+
+        <?php foreach ($view->wishItems as $carsData) { ?>
+            <a href="advert.php?id=<?php echo $carsData->getId() ?>">
+                <?php $id = $carsData->getID(); ?>
+                <?php $pics = $view->pictureSet->getPicsByItemID($carsData->getID()) ;?>
+                <tr>
+                    <td><?php echo $carsData->getTitle() ?></td>
+                    <td><?php echo $carsData->getAdded() ?></td>
+                    <td><?php echo $carsData->getPrice() ?></td>
+                    <td><img src="uploads/<?php echo $pics[0] ?>" width="75px" /></td>
+                    <td><form  method="post" action="wishList.php" >
+                            <input type="hidden" name="id"  />
+                            <button name="deleteWish" type="submit" class="btn btn-danger" value="  <?php echo $id ?>  ">Delete</button>
+                        </form>
+                    </td>
+                    <td><form  method="post" action="advert.php?id=<?php echo $id ?>" >
+                            <input type="hidden" name="id"  />
+                            <button name="view" type="submit" class="btn btn-info" value="  <?php echo $id ?>  ">View</button>
+                        </form>
+                    </td>
+                </tr>
+
+
+
+        <?php } ?>
+
+
+
+<!--        --><?php //foreach ($view->wishItems as $carsData) {
+//            echo "<a href=\"advert.php?id= $carsData->getId() ";
+//            $id = $carsData->getID();
+//            $pics = $view->pictureSet->getPicsByItemID($carsData->getID());
+//            $string = "<form  method=\"post\" action=\"wishList.php\" >
+//                            <input type=\"hidden\" name=\"id\"  />
+//                <button name=\"deleteWish\" type=\"submit\" class=\"btn btn-danger\" value=\"  $id  \"/>Delete</button>
+//                </form>
+//            ";
+//            echo ' <tr>  <td>' . $carsData->getTitle() . '</td> <td>' . $carsData->getAdded() . '</td> <td>' . $carsData->getPrice() . '</td> <td>' . '<img src="uploads/' . $pics[0] . ' " width="75px" />' . '
+//                            </td><td>'. $string . '</td></tr>';
+//
+//        }
+//        ;?>
+
+        </tbody>
+    </table>
+
+
+
+
+
+
+
+</div>
+
+
+
+
+
+
+
+
+
+
+
+<?php require('template/footer.phtml') ?>

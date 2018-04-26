@@ -1,0 +1,124 @@
+<?php include('server.php'); ?>
+
+
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+
+    <!-- Bootstrap core CSS -->
+    <link href="/css/bootstrap.css" rel="stylesheet">
+    <!-- Bootstrap theme -->
+    <link href="/css/bootstrap-theme.css" rel="stylesheet">
+    <link href="/css/myStyle.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+    <script>
+        function showResult (str) {
+            if (str.length == 0) {
+                document.getElementById('livesearch').innerHTML='';
+                document.getElementById('livesearch').style.border=0px;
+                return;
+            }
+
+            if (window.XMLHttpRequest) {
+                xmlhttp =  new XMLHttpRequest();
+            } else { //IE browsers
+                xmlhttp = new ActiveXObject("Microsoft.XMLHTTP");
+            }
+
+            xmlhttp.onreadystatechange = function () {
+                if (this.readyState == 4 && this.status==200) {
+                    document.getElementById('livesearch').innerHTML=this.responseText;
+                    document.getElementById('livesearch').style.border='"1px solid #A5ACB2"';
+                }
+            }
+            xmlhttp.open("GET", "livesearch.php?q="+str, true);
+        }
+
+    </script>
+
+
+
+
+
+    <title>Server-Side Programming - <?php echo $view->pageTitle; ?></title>
+</head>
+
+<body role="document", style="height:1500px">
+
+
+
+
+<div class="navigation">
+    <nav class="navbar navbar-expand-sm bg-success navbar-dark fixed-top ">
+        <a id="logo" class="navbar-brand" href="index.php"><img src="Images/logo.png" alt="Logo" style="width:40px;"></a>
+        <ul id="list" class="navbar-nav">
+
+        <?php if (isset($_SESSION['username'])) {?>
+            <?php if ($_SESSION['username'] == "admin") {?>
+                <li class="nav-item">
+                    <a class="nav-link" href="admin.php">Admin</a>
+                </li>
+            <?php }?>
+            <li class="nav-item" class="col-sm">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item" class="col-sm">
+                <div class="dropdown">
+                    <a class='nav-link' class="dropdown-toggle" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <?php echo 'Welcome ' . $_SESSION['username']  ?> <span class="caret">&#9660</span>
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/manageAds.php">Manage my adds</a>
+                        <a class="dropdown-item" href="wishList.php">Wish list</a>
+                        <a class="dropdown-item" href="login.php?logout='1'">Logout</a>
+                    </div>
+                </div>
+            </li>
+            <li class="nav-item" class="col-sm">
+                <a class="nav-link" href="post_add.php">Post an advert</a>
+            </li>
+            <?php } else { ?>
+            <li class="nav-item" class="col-sm">
+                <a class="nav-link" href="index.php">Home</a>
+            </li>
+            <li class="nav-item" class="col-sm">
+                <a class="nav-link" href="login.php">Login/Register</a>
+            </li>
+            <li class="nav-item" class="col-sm">
+                <a class="nav-link" href="login.php">Post an advert</a>
+            </li>
+            <?php } ?>
+        </ul>
+    </nav>
+</div>
+<?php if ($flag) { ?>
+<div id="searchBar" class="col-sm" class="row">
+    <form id="searchInput" class="form-inline" action="index.php" method="post" onkeyup="showResult(this.value)">
+        <input class="form-control mr-sm-2" type="text" placeholder="Search" name="s" style="width: 500px">
+        <button class="btn btn-primary" type="submit" name="search">Search</button>
+
+    </form>
+    <div id="livesearch"></div>
+</div>
+
+
+<?php } ?>
+
+<div class="container">
+
+
+
+
+
+
+
+
+
+

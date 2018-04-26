@@ -1,0 +1,38 @@
+<?php require('template/header.phtml') ?>
+<div id="uploadPics">
+
+<?php
+                if(isset($successMsg) && !empty($successMsg))
+                {
+                    echo "<div class='success-msg'>";
+                    foreach($successMsg as $sMsg)
+                    {
+                        echo $sMsg."<br>";
+                    }
+                    echo "</div>";
+                }
+                ?>
+
+
+<?php
+if(isset($errorMsg) && !empty($errorMsg))
+{
+    echo "<div class='error-msg'>";
+    foreach($errorMsg as $eMsg)
+    {
+        echo $eMsg."<br>";
+    }
+
+    echo "</div>";
+}
+?>
+<div class="add-more-cont"><a id="moreImg"><img src="Images/plus.png" width="20" height="20">Add Image</a></div>
+<form name="uploadFile" enctype="multipart/form-data" action="" method="POST" id="upload">
+    <div class="input-files">
+        <input type="file" name="image_upload-1">
+    </div>
+    <input type="submit" name="uploadB" value="Upload">
+</form>
+</div>
+
+<?php require('template/footer.phtml') ?>

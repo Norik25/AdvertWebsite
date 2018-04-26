@@ -1,0 +1,40 @@
+<?php require('template/header.phtml') ?>
+
+<div  id="content">
+
+    <div id="post">
+        <div class="headerMail">
+            <h2>Send your email</h2>
+        </div>
+
+
+        <form class="submitForms" id="mail" method="post" action="mail.php">
+            <?php if ($message == 'success') { ?>
+                <div class="success">
+                    <p>Your email has been sent</p>
+                </div>
+            <?php } ?>
+
+            <div class="input-group">
+                <label>Write your message</label>
+                <textarea name="comment" rows="15" cols="40"></textarea>
+            </div>
+
+            <div class="input-group">
+                <button type="submit" name="mail" class="btn btn-success">Send your message</button>
+            </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<?php require('template/footer.phtml') ?>

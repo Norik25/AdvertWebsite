@@ -1,0 +1,119 @@
+<?php require('template/header.phtml') ?>
+
+<div id="content">
+    <div id="mail">
+        <div class="headerAdd">
+            <h2>Post your advert</h2>
+        </div>
+
+
+        <form class="submitForms" id="formAdd" method="post" action="/post_add.php" enctype="multipart/form-data">
+            <?php if ($message == 'success') { ?>
+                <div class="success">
+                    <p>Your item has been updated successfully</p>
+                </div>
+            <?php } ?>
+            <?php echo $message; ?>
+<!--            --><?php //var_dump($statement); ?>
+<!--            --><?php //var_dump($pics) ?>
+            <?php if(isset($_POST['addAdButton'])) {
+                include('errors.php');
+            }
+            ?>
+<!--            <p>--><?php //echo var_dump($errors) ?><!--</p>-->
+<!--            <p>--><?php //echo $title ?><!--</p>-->
+<!--            <p>--><?php //echo $make ?><!--</p>-->
+<!--            <p>--><?php //echo $engine ?><!--</p>-->
+<!--            <p>--><?php //echo $gearbox ?><!--</p>-->
+<!--            <p>--><?php //echo $mileage ?><!--</p>-->
+<!--            <p>--><?php //echo $color ?><!--</p>-->
+<!--            <p>--><?php //echo $price ?><!--</p>-->
+<!--            <p>--><?php //echo $description ?><!--</p>-->
+<!--            <p>--><?php //echo $added ?><!--</p>-->
+<!--            <p>--><?php //echo $user ?><!--</p>-->
+<!--            <p>--><?php //echo $picture ?><!--</p>-->
+
+            <div class="input-group">
+                <label>Advert title</label>
+                <input type="text" name="title" value="<?php echo $title; ?>">
+            </div>
+
+            <div class="input-group">
+                <label>Make</label>
+                <input type="text" name="make" value="<?php echo $make; ?>">
+            </div>
+            <div class="input-group">
+                <label>Engine size</label>
+                <select name="engine">
+                    <option value="1.0">1.0</option>
+                    <option value="1.2">1.2</option>
+                    <option value="1.4">1.4</option>
+                    <option value="1.6">1.6</option>
+                    <option value="1.8">1.8</option>
+                    <option value="1.9">1.9</option>
+                    <option value="2.0">2.0</option>
+                    <option value="2.2">2.2</option>
+                    <option value="2.4">2.4</option>
+                    <option value="2.6">2.6</option>
+                    <option value="3.0">3.0</option>
+                    <option value="3.5">3.5</option>
+                    <option value="4.0">4.0</option>
+                    <option value="4.5">4.5</option>
+                    <option value="5.0">5.0</option>
+                    <option value="5.5">5.5</option>
+                    <option value="6.0">6.0</option>
+                    <option value="6.5">6.5</option>
+                    <option value="7.0">7.0</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Gearbox</label>
+                <select name="gearbox">
+                    <option value="automatic">automatic</option>
+                    <option value="semi-automatic">semi-automatic</option>
+                    <option value="manual">manual</option>
+                </select>
+            </div>
+            <div class="input-group">
+                <label>Mileage</label>
+                <input type="text" name="mileage" value="<?php echo $mileage; ?>">
+            </div>
+            <div class="input-group">
+                <label>Color</label>
+                <input type="text" name="color" value="<?php echo $color; ?>">
+            </div>
+            <div class="input-group">
+                <label>Price</label>
+                <input type="text" name="price" value="<?php echo $price; ?>">
+            </div>
+
+            <div id="uploadPics">
+                <input type="file" name="files[]" multiple>
+            </div>
+
+            <div class="input-group">
+                <label>Description</label>
+                <input type="text" name="desc" value="<?php echo $description; ?>">
+            </div>
+
+
+
+
+                <div class="input-group">
+                    <button type="submit" name="addAdButton" class="btn btn-success">Post your add</button>
+                </div>
+
+
+        </form>
+    </div>
+</div>
+
+
+
+
+
+
+
+
+
+<?php require('template/footer.phtml') ?>

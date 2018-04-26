@@ -1,0 +1,84 @@
+<?php require('template/header.phtml') ?>
+
+<div id="content">
+
+    <h2>Admin maintenance page</h2>
+
+
+
+
+    <nav>
+        <div class="nav nav-tabs" id="nav-tab" role="tablist">
+            <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#users" role="tab" aria-controls="nav-home" aria-selected="true">Users</a>
+            <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#items" role="tab" aria-controls="nav-profile" aria-selected="false">Items</a>
+        </div>
+    </nav>
+
+    <div class="tab-content" id="nav-tabContent">
+        <div id="users" class="tab-pane fade show active" role="tabpanel" aria-labelledby="home-tab">
+            <h3>Users</h3>
+            <table class="table table-hover">
+                <thead>
+                <tr><th>Email</th><th>Username</th><th>Password</th><th>Phone</th><th>Address</th><th>Post Code</th><th>City</th><th>Delete</th><th>Update</th></tr>
+
+
+                </thead>
+                <tbody>
+                <?php foreach ($view->usersDataSet as $usersData) {
+                    $id = $usersData->getId()  ?>
+                    <tr> <td> <?php echo $usersData->getEmail() ?> </td> <td><?php echo $usersData->getUsername() ?></td> <td><?php echo $usersData->getPassword() ?></td> <td><?php echo $usersData->getPhone() ?></td> <td><?php echo $usersData->getAddress() ?></td> <td><?php echo $usersData->getPostcode() ?></td> <td><?php echo $usersData->getCity() ?></td>
+                        <td><form  method="post" action="manageAds.php" >
+                                <input type="hidden" name="id"  />
+                                <button name="deleteUser" type="submit" class="btn btn-danger" value="  <?php echo $id ?>  ">Delete</button>
+                            </form></td><td><form  method="post" action="editUser.php?id=<?php echo $id?>" >
+                                <input type="hidden" name="id"  />
+                                <button name="editUser" type="submit" class="btn btn-info" value="  <?php echo $id ?>  ">Edit</button>
+                            </form></td></tr>
+               <?php } ?>
+                </tbody>
+            </table>
+        </div>
+        <div class="tab-pane fade" id="items" role="tabpanel" aria-labelledby="profile-tab">
+            <h3>Adverts</h3>
+            <table class="table table-hover">
+                <thead>
+
+                <tr><th>Title</th><th>Added</th><th>Price</th><th>Picture</th><th>Expires In</th><th>Archive</th><th>Edit</th></tr>
+
+
+                </thead>
+                <tbody>
+                <?php foreach ($view->carsDataSet as $carsData) {
+                    $id = $carsData->getID();
+                    $time = strtotime($carsData->getAdded());
+                    $twoWeeks = $time + 1209600;
+                    $pics = $view->pictureSet->getPicsByItemID($carsData->getID()); ?>
+                    <tr> <td> <?php echo  $carsData->getTitle() ?>   </td> <td><?php echo  $carsData->getAdded() ?></td> <td><?php echo  $carsData->getPrice() ?></td> <td><img src="uploads/<?php echo  $pics[0] ?> " width="75px" /></td><td>
+                            <?php if ($time <= $twoWeeks) {
+                                echo floor((($twoWeeks - strtotime(date("F j, Y, g:i a"))) / 60 / 60)) . ' hours';
+                            }
+                            else {
+                                echo 'Expired';
+                            }?>
+                        </td><td><form  method="post" action="manageAds.php" >
+                <input type="hidden" name="id"  />
+                <button name="archiveAd" type="submit" class="btn btn-danger" value="  <?php echo $id ?>  ">Archive</button>
+            </form></td>
+            <td><form  method="post" action="editAdvert.php?id=<?php echo $id?>" >
+                <input type="hidden" name="id"  />
+                <button name="editAd" type="submit" class="btn btn-info" value="  <?php echo $id ?>  ">Edit</button>
+            </form></td></tr>
+                <?php } ?>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<?php require('template/footer.phtml') ?>
